@@ -65,9 +65,11 @@
             this.CancelButton.TabIndex = 2;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // NextButton
             // 
+            this.NextButton.Enabled = false;
             this.NextButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NextButton.Location = new System.Drawing.Point(717, 375);
             this.NextButton.Name = "NextButton";
@@ -75,6 +77,7 @@
             this.NextButton.TabIndex = 3;
             this.NextButton.Text = "Next";
             this.NextButton.UseVisualStyleBackColor = true;
+            this.NextButton.Click += new System.EventHandler(this.NextButton_Click);
             // 
             // NoticeLabel
             // 
@@ -110,6 +113,7 @@
             this.Name = "SelectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Your Computer";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SelectForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.HardwareListDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

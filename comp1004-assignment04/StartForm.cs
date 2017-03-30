@@ -13,7 +13,7 @@ namespace comp1004_assignment04
     public partial class StartForm : Form
     {
 
-        public Form PreviousForm { get; set; }
+        public SplashScreen PreviousForm { get; set; }
 
         public StartForm()
         {
