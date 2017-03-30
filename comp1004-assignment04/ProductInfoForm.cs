@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace comp1004_assignment04
 {
-    public partial class Form1 : Form
+    public partial class ProductInfoForm : Form
     {
-        public Form1()
+        public Form PreviousForm { get; set; }
+
+        public ProductInfoForm()
         {
             InitializeComponent();
         }
