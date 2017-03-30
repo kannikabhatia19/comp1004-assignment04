@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.ProductInfoMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,9 +80,9 @@
             this.TechSpecsGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // openFileDialog1
+            // OpenFileDialog
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.OpenFileDialog.FileName = "openFileDialog1";
             // 
             // ProductInfoMenuStrip
             // 
@@ -562,8 +562,8 @@
 
         #endregion
 
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.OpenFileDialog OpenFileDialog;
+        private System.Windows.Forms.SaveFileDialog SaveFileDialog;
         private System.Windows.Forms.MenuStrip ProductInfoMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
