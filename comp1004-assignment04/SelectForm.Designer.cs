@@ -53,7 +53,7 @@
             this.SelectionTextBox.Location = new System.Drawing.Point(148, 379);
             this.SelectionTextBox.Name = "SelectionTextBox";
             this.SelectionTextBox.ReadOnly = true;
-            this.SelectionTextBox.Size = new System.Drawing.Size(421, 26);
+            this.SelectionTextBox.Size = new System.Drawing.Size(448, 26);
             this.SelectionTextBox.TabIndex = 1;
             // 
             // CancelButton

@@ -119,6 +119,7 @@
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DollarComputerClassDiagram.cd" />
     <None Include="dollarsignicon" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

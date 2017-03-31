@@ -13,11 +13,9 @@ namespace comp1004_assignment04
 {
     public partial class SelectForm : Form
     {
-
-        //I use static variable because this information will be used for the whole
-        //program not just one specific class
+        
         public static List<product> productList = new List<product>();
-        public DollarComputerContext dollarComputerDB;
+        
         public static product selectProduct;
 
         public Form PreviousForm { get; set; }
@@ -32,21 +30,6 @@ namespace comp1004_assignment04
             this.Close();
         }
 
-        private void SelectForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure?", "Confirm",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.OK)
-            {
-                this.PreviousForm.Close();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
-
         private void NextButton_Click(object sender, EventArgs e)
         {
             ProductInfoForm productInfoForm = new ProductInfoForm();
@@ -59,9 +42,7 @@ namespace comp1004_assignment04
         {
             try
             {
-                dollarComputerDB = new DollarComputerContext();
-
-                productList = (from product in dollarComputerDB.products
+                productList = (from product in Program.dollarComputerDB.products
                                select product).ToList();
 
                 HardwareListDataGridView.DataSource = productList;
@@ -69,8 +50,6 @@ namespace comp1004_assignment04
             }
             catch (Exception err)
             {
-                //The error message should be hide from the outside world, but
-                //I print it out to the console for debugging purpose
                 MessageBox.Show("Cannot retrieve data", "Error",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Debug.WriteLine(err.Message);
@@ -95,8 +74,6 @@ namespace comp1004_assignment04
             }
             catch (Exception err)
             {
-                //The error message should be hide from the outside world,
-                //but I print it out to the console for debugging purpose
                 MessageBox.Show("Cannot retrieve data", "Error", 
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Debug.WriteLine(err.Message);
@@ -104,7 +81,28 @@ namespace comp1004_assignment04
             
             if(selectProduct != null)
             {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(selectProduct.manufacturer);
+                sb.Append(" ");
+                sb.Append(selectProduct.model);
+                sb.Append(" Priced at: $");
+                sb.Append(selectProduct.cost);
+                SelectionTextBox.Text = sb.ToString();
+            }
+        }
 
+        private void SelectForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirm",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                this.PreviousForm.Close();
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }

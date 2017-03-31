@@ -12,7 +12,6 @@ namespace comp1004_assignment04
 {
     public partial class OrderForm : Form
     {
-
         public Form PreviousForm { get; set; }
 
         public OrderForm()

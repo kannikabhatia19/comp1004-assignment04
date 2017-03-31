@@ -12,14 +12,13 @@ namespace comp1004_assignment04
 {
     public partial class StartForm : Form
     {
-
-        public SplashScreen PreviousForm { get; set; }
+        public Form PreviousForm { get; set; }
 
         public StartForm()
         {
             InitializeComponent();
         }
-
+        
         private void StartNewOrderButton_Click(object sender, EventArgs e)
         {
             SelectForm selectForm = new SelectForm();
