@@ -8,6 +8,7 @@ namespace comp1004_assignment04
 {
     static class Program
     {
+        
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -17,6 +18,8 @@ namespace comp1004_assignment04
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SplashScreen());
+
+
         }
     }
 }
