@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ App name: DollarComputer
+ Author's name: Kannika Bhatia
+ Student ID: 200332992
+ App Creation Date: 30 March 2017
+ App Description: Connect to file or database and load information into form so
+                    user can buy computer they like. Save their selection into file.
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,9 +24,8 @@ namespace comp1004_assignment04
 {
     public partial class ProductInfoForm : Form
     {
-
+        /*===============PROPERTIES================================*/
         public Form PreviousForm { get; set; }
-        private product _selectedProduct;
 
         private StreamWriter _swriter;
         private StreamReader _sreader;
@@ -25,7 +34,9 @@ namespace comp1004_assignment04
         {
             InitializeComponent();
         }
-        
+
+        /*--------------EVENT HANDLER-----------------------------*/
+
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result;
@@ -46,7 +57,7 @@ namespace comp1004_assignment04
                     if (this._sreader.Peek() != -1)
                     {
                         productID = Convert.ToInt32(_sreader.ReadLine());
-                        this._selectedProduct = (from product in Program.dollarComputerDB.products
+                        Program.selectedProduct = (from product in Program.dollarComputerDB.products
                                          where product.productID == productID
                                          select product).FirstOrDefault();
                         _fillProductInfoInForm();
@@ -72,7 +83,7 @@ namespace comp1004_assignment04
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if(this._selectedProduct != null)
+            if(Program.selectedProduct != null)
             {
                 DialogResult result;
                 string fileName;
@@ -89,7 +100,7 @@ namespace comp1004_assignment04
                     try
                     {
                         this._swriter = new StreamWriter(fileName);
-                        this._swriter.WriteLine(this._selectedProduct.productID);
+                        this._swriter.WriteLine(Program.selectedProduct.productID);
                         MessageBox.Show("Successfully writing to file", "Success",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -118,22 +129,7 @@ namespace comp1004_assignment04
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
-        }
-
-        private void ProductInfoForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure?", "Confirm",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.OK)
-            {
-                this.PreviousForm.Close();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
+            this.PreviousForm.Close();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
@@ -146,9 +142,8 @@ namespace comp1004_assignment04
 
         private void ProductInfoForm_Load(object sender, EventArgs e)
         {
-            if (SelectForm.selectProduct != null)
+            if (Program.selectedProduct != null)
             {
-                this._selectedProduct = SelectForm.selectProduct;
                 _fillProductInfoInForm();
             }
             else if (this.PreviousForm != null)
@@ -156,28 +151,28 @@ namespace comp1004_assignment04
                 openToolStripMenuItem_Click(sender, e);
             }
         }
-
+        /*==================FUNCTION===============================*/
         private void _fillProductInfoInForm()
         {
-            if (this._selectedProduct != null)
+            if (Program.selectedProduct != null)
             {
                 this.NextButton.Enabled = true;
-                ProductIdTextBox.Text = this._selectedProduct.productID.ToString();
-                ConditionTextBox.Text = this._selectedProduct.condition.ToString();
-                CostTextBox.Text = "$" + this._selectedProduct.cost.ToString();
-                PlatformTextBox.Text = this._selectedProduct.platform.ToString();
-                OSTextBox.Text = this._selectedProduct.OS.ToString();
-                ManufacturerTextBox.Text = this._selectedProduct.manufacturer.ToString();
-                ModelTextBox.Text = this._selectedProduct.model.ToString();
-                MemoryTextBox.Text = this._selectedProduct.RAM_size.ToString();
-                CPUBrandTextBox.Text = this._selectedProduct.CPU_brand.ToString();
-                CPUTypeTextBox.Text = this._selectedProduct.CPU_type.ToString();
-                LCDSizeTextBox.Text = this._selectedProduct.screensize.ToString();
-                CPUNumberTextBox.Text = this._selectedProduct.CPU_number.ToString();
-                CPUSpeedTextBox.Text = this._selectedProduct.CPU_speed.ToString();
-                HDDTextBox.Text = this._selectedProduct.HDD_size.ToString();
-                GPUTypeTextBox.Text = this._selectedProduct.GPU_Type.ToString();
-                WebCamTextBox.Text = this._selectedProduct.webcam.ToString();
+                ProductIdTextBox.Text = Program.selectedProduct.productID.ToString();
+                ConditionTextBox.Text = Program.selectedProduct.condition.ToString();
+                CostTextBox.Text = "$" + Program.selectedProduct.cost.ToString();
+                PlatformTextBox.Text = Program.selectedProduct.platform.ToString();
+                OSTextBox.Text = Program.selectedProduct.OS.ToString();
+                ManufacturerTextBox.Text = Program.selectedProduct.manufacturer.ToString();
+                ModelTextBox.Text = Program.selectedProduct.model.ToString();
+                MemoryTextBox.Text = Program.selectedProduct.RAM_size.ToString();
+                CPUBrandTextBox.Text = Program.selectedProduct.CPU_brand.ToString();
+                CPUTypeTextBox.Text = Program.selectedProduct.CPU_type.ToString();
+                LCDSizeTextBox.Text = Program.selectedProduct.screensize.ToString();
+                CPUNumberTextBox.Text = Program.selectedProduct.CPU_number.ToString();
+                CPUSpeedTextBox.Text = Program.selectedProduct.CPU_speed.ToString();
+                HDDTextBox.Text = Program.selectedProduct.HDD_size.ToString();
+                GPUTypeTextBox.Text = Program.selectedProduct.GPU_Type.ToString();
+                WebCamTextBox.Text = Program.selectedProduct.webcam.ToString();
             }
         }
     }

@@ -1,4 +1,14 @@
-﻿using System;
+﻿/*
+ App name: DollarComputer
+ Author's name: Kannika Bhatia
+ Student ID: 200332992
+ App Creation Date: 30 March 2017
+ App Description: Connect to file or database and load information into form so
+                    user can buy computer they like. Save their selection into file.
+ */
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +22,16 @@ namespace comp1004_assignment04
 {
     public partial class StartForm : Form
     {
-        public Form PreviousForm { get; set; }
+        /*===============PROPERTIES================================*/
+        public SplashScreen PreviousForm { get; set; }
 
         public StartForm()
         {
             InitializeComponent();
         }
-        
+
+        /*--------------EVENT HANDLER-----------------------------*/
+
         private void StartNewOrderButton_Click(object sender, EventArgs e)
         {
             SelectForm selectForm = new SelectForm();

@@ -6,7 +6,8 @@
  App Description: Connect to file or database and load information into form so
                     user can buy computer they like. Save their selection into file.
  */
- 
+
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,20 +20,11 @@ using System.Windows.Forms;
 
 namespace comp1004_assignment04
 {
-    public partial class SplashScreen : Form
+    public partial class AboutForm : Form
     {
-        public SplashScreen()
+        public AboutForm()
         {
             InitializeComponent();
-        }
-        /*--------------EVENT HANDLER-----------------------------*/
-        private void SplashScreenTimer_Tick(object sender, EventArgs e)
-        {
-            SplashScreenTimer.Enabled = false;
-            StartForm startForm = new StartForm();
-            startForm.PreviousForm = this;
-            startForm.Show();
-            this.Hide();
         }
     }
 }

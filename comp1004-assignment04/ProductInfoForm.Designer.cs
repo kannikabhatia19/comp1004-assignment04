@@ -104,21 +104,21 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.CancelButton_Click);
             // 
@@ -214,7 +214,7 @@
             // ProductIdTextBox
             // 
             this.ProductIdTextBox.BackColor = System.Drawing.Color.White;
-            this.ProductIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProductIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductIdTextBox.Location = new System.Drawing.Point(119, 37);
             this.ProductIdTextBox.Name = "ProductIdTextBox";
             this.ProductIdTextBox.ReadOnly = true;
@@ -224,7 +224,7 @@
             // ConditionTextBox
             // 
             this.ConditionTextBox.BackColor = System.Drawing.Color.White;
-            this.ConditionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConditionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConditionTextBox.Location = new System.Drawing.Point(334, 37);
             this.ConditionTextBox.Name = "ConditionTextBox";
             this.ConditionTextBox.ReadOnly = true;
@@ -234,7 +234,7 @@
             // CostTextBox
             // 
             this.CostTextBox.BackColor = System.Drawing.Color.White;
-            this.CostTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CostTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CostTextBox.Location = new System.Drawing.Point(526, 37);
             this.CostTextBox.Name = "CostTextBox";
             this.CostTextBox.ReadOnly = true;
@@ -523,8 +523,7 @@
             // 
             // ProductInfoForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(845, 464);
             this.ControlBox = false;
             this.Controls.Add(this.TechSpecsGroupBox);
@@ -544,7 +543,6 @@
             this.Name = "ProductInfoForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product Information Form";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProductInfoForm_FormClosing);
             this.Load += new System.EventHandler(this.ProductInfoForm_Load);
             this.ProductInfoMenuStrip.ResumeLayout(false);
             this.ProductInfoMenuStrip.PerformLayout();

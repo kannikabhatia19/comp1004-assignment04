@@ -95,14 +95,14 @@
             this.HardwareListDataGridView.Location = new System.Drawing.Point(13, 32);
             this.HardwareListDataGridView.Name = "HardwareListDataGridView";
             this.HardwareListDataGridView.ReadOnly = true;
+            this.HardwareListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.HardwareListDataGridView.Size = new System.Drawing.Size(816, 328);
             this.HardwareListDataGridView.TabIndex = 5;
             this.HardwareListDataGridView.SelectionChanged += new System.EventHandler(this.HardwareListDataGridView_SelectionChanged);
             // 
             // SelectForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(841, 422);
             this.ControlBox = false;
             this.Controls.Add(this.HardwareListDataGridView);
@@ -114,7 +114,6 @@
             this.Name = "SelectForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Your Computer";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SelectForm_FormClosing);
             this.Load += new System.EventHandler(this.SelectForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.HardwareListDataGridView)).EndInit();
             this.ResumeLayout(false);

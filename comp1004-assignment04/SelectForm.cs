@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*
+ App name: DollarComputer
+ Author's name: Kannika Bhatia
+ Student ID: 200332992
+ App Creation Date: 30 March 2017
+ App Description: Connect to file or database and load information into form so
+                    user can buy computer they like. Save their selection into file.
+ */
+
+
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,21 +24,19 @@ namespace comp1004_assignment04
 {
     public partial class SelectForm : Form
     {
-        
-        public static List<product> productList = new List<product>();
-        
-        public static product selectProduct;
-
+        /*===============PROPERTIES================================*/
         public Form PreviousForm { get; set; }
 
         public SelectForm()
         {
             InitializeComponent();
         }
+        
+        /*--------------EVENT HANDLER-----------------------------*/
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.PreviousForm.Close();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
@@ -42,10 +51,10 @@ namespace comp1004_assignment04
         {
             try
             {
-                productList = (from product in Program.dollarComputerDB.products
+                Program.productList = (from product in Program.dollarComputerDB.products
                                select product).ToList();
 
-                HardwareListDataGridView.DataSource = productList;
+                HardwareListDataGridView.DataSource = Program.productList;
 
             }
             catch (Exception err)
@@ -67,8 +76,8 @@ namespace comp1004_assignment04
             
             try
             {
-                selectProduct = new product();
-                selectProduct = (from product in productList
+                Program.selectedProduct = new product();
+                Program.selectedProduct = (from product in Program.productList
                                  where product.productID == currentId
                                  select product).FirstOrDefault();
             }
@@ -79,31 +88,18 @@ namespace comp1004_assignment04
                 Debug.WriteLine(err.Message);
             }
             
-            if(selectProduct != null)
+            if(Program.selectedProduct != null)
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append(selectProduct.manufacturer);
+                sb.Append(Program.selectedProduct.manufacturer);
                 sb.Append(" ");
-                sb.Append(selectProduct.model);
+                sb.Append(Program.selectedProduct.model);
                 sb.Append(" Priced at: $");
-                sb.Append(selectProduct.cost);
+                sb.Append(Program.selectedProduct.cost);
                 SelectionTextBox.Text = sb.ToString();
             }
         }
 
-        private void SelectForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            DialogResult result = MessageBox.Show("Are you sure?", "Confirm",
-                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.OK)
-            {
-                this.PreviousForm.Close();
-            }
-            else
-            {
-                e.Cancel = true;
-            }
-        }
+        
     }
 }
