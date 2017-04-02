@@ -30,6 +30,7 @@ namespace comp1004_assignment04
         static void Main()
         {
             dollarComputerDB = new DollarComputerContext();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SplashScreen());

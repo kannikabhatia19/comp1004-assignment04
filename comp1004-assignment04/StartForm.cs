@@ -60,7 +60,7 @@ namespace comp1004_assignment04
 
             if (result == DialogResult.OK)
             {
-                this.PreviousForm.Close();
+                Environment.Exit(1);
             }
             else
             {

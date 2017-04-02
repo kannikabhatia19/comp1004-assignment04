@@ -61,11 +61,11 @@ namespace comp1004_assignment04
             OSTextBox.Text = Program.selectedProduct.OS.ToString();
 
             _price = (decimal) Program.selectedProduct.cost;
-            PriceTextBox.Text = _price.ToString();
+            PriceTextBox.Text = "$ " + _price.ToString();
             _salesTax = (decimal)Program.selectedProduct.cost * _taxRate;
-            SalesTaxTextBox.Text = _salesTax.ToString();
+            SalesTaxTextBox.Text = "$ " + _salesTax.ToString();
             _totalPrice = _price + _salesTax;
-            TotalTextBox.Text = _totalPrice.ToString();
+            TotalTextBox.Text = "$ " + _totalPrice.ToString();
         }
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace comp1004_assignment04
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.PreviousForm.Close();
+            this.Close();
         }
 
         private void FinishButton_Click(object sender, EventArgs e)
@@ -94,7 +94,23 @@ namespace comp1004_assignment04
 
             if (result == DialogResult.OK)
             {
-                this.PreviousForm.Close();
+                CancelButton_Click(sender, e);
+
+            }
+        }
+
+        private void OrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirm",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Environment.Exit(1);
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }

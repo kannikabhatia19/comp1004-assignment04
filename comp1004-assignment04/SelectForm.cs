@@ -36,7 +36,7 @@ namespace comp1004_assignment04
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.PreviousForm.Close();
+            this.Close();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
@@ -100,6 +100,19 @@ namespace comp1004_assignment04
             }
         }
 
-        
+        private void SelectForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirm",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Environment.Exit(1);
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

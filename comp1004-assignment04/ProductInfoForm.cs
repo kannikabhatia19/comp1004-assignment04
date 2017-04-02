@@ -129,7 +129,7 @@ namespace comp1004_assignment04
 
         private void CancelButton_Click(object sender, EventArgs e)
         {
-            this.PreviousForm.Close();
+            this.Close();
         }
 
         private void NextButton_Click(object sender, EventArgs e)
@@ -151,6 +151,7 @@ namespace comp1004_assignment04
                 openToolStripMenuItem_Click(sender, e);
             }
         }
+
         /*==================FUNCTION===============================*/
         private void _fillProductInfoInForm()
         {
@@ -173,6 +174,21 @@ namespace comp1004_assignment04
                 HDDTextBox.Text = Program.selectedProduct.HDD_size.ToString();
                 GPUTypeTextBox.Text = Program.selectedProduct.GPU_Type.ToString();
                 WebCamTextBox.Text = Program.selectedProduct.webcam.ToString();
+            }
+        }
+
+        private void ProductInfoForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure?", "Confirm",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+
+            if (result == DialogResult.OK)
+            {
+                Environment.Exit(1);
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }
